@@ -1432,7 +1432,7 @@
         .marquee-track span {
             font-family: var(--font-mono);
             font-size: 14px;
-            color: var(--mint-2);
+            color: #DFF4CC;
             padding: 0 22px;
             display: flex;
             align-items: center;
@@ -2518,7 +2518,7 @@
         /* ====== /NOW SECTION ====== */
         .now-section {
             background: var(--deep);
-            color: var(--mint);
+            color: #DFF4CC;
         }
 
         .now-section .eyebrow {
@@ -2563,7 +2563,7 @@
 
         .now-card-icon {
             font-size: 26px;
-            color: var(--now-text, var(--mint));
+            color: #DFF4CC;
         }
 
         .now-card-label {
