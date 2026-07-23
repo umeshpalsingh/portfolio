@@ -2258,14 +2258,20 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: var(--badge-bg);
-            color: var(--badge-text);
+            background: rgba(11, 26, 16, 0.85);
+            color: #DFF4CC;
             font-family: var(--font-mono);
-            font-size: 11px;
+            font-size: 10.5px;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 999px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(223, 244, 204, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 2;
         }
 
         .project-card-body {
