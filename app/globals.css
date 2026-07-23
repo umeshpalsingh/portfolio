@@ -1224,6 +1224,25 @@
             margin-bottom: 12px;
         }
 
+        [data-theme="dark"] .lightbox-card {
+            background: #0d1a11;
+            border: 1px solid rgba(223, 244, 204, 0.18);
+        }
+
+        [data-theme="dark"] .lightbox-card h3 {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .lightbox-card p {
+            color: rgba(223, 244, 204, 0.75);
+        }
+
+        [data-theme="dark"] .lightbox-close {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
         [data-theme="dark"] .lightbox-category {
             color: #4ADE80;
         }

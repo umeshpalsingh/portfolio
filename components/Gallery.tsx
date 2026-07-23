@@ -177,7 +177,7 @@ export default function Gallery() {
                                 key={src} 
                                 src={src} 
                                 alt={activeItem.alts[idx]} 
-                                className={idx === activeImgIdx ? 'active' : ''} 
+                                className={`lightbox-img ${idx === activeImgIdx ? 'active' : ''}`} 
                             />
                         ))}
                         <button className="lightbox-arrow prev" onClick={prevImg} aria-label="Previous image">
