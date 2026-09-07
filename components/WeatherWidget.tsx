@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function WeatherWidget() {
     const [temp, setTemp] = useState('--°C');
     const [aqi, setAqi] = useState('');
+    const [aqiClass, setAqiClass] = useState('good');
     const [time, setTime] = useState('--:--');
 
     useEffect(() => {
@@ -45,12 +46,13 @@ export default function WeatherWidget() {
                     const aqiData = await aqiRes.json();
                     const val = aqiData.current.us_aqi;
                     let aqiLabel = 'AQI Good';
-                    let aqiClass = 'good';
-                    if (val > 50 && val <= 100) { aqiLabel = 'AQI Moderate'; aqiClass = 'mod'; }
-                    else if (val > 100 && val <= 150) { aqiLabel = 'AQI Unhealthy (Sensitive)'; aqiClass = 'poor'; }
-                    else if (val > 150) { aqiLabel = 'AQI Unhealthy'; aqiClass = 'poor'; }
+                    let cls = 'good';
+                    if (val > 50 && val <= 100) { aqiLabel = 'AQI Moderate'; cls = 'mod'; }
+                    else if (val > 100 && val <= 150) { aqiLabel = 'AQI Unhealthy (Sensitive)'; cls = 'poor'; }
+                    else if (val > 150) { aqiLabel = 'AQI Unhealthy'; cls = 'poor'; }
                     
                     setAqi(aqiLabel);
+                    setAqiClass(cls);
                 }
             } catch (error) {
                 console.error("Failed to fetch weather", error);
@@ -71,7 +73,7 @@ export default function WeatherWidget() {
                     <div className="weather-location">Noida</div>
                     <div className="weather-time-clock" id="localTime">{time}</div>
                 </div>
-                {aqi && <span className="weather-aqi-badge good" id="weatherAqi">{aqi}</span>}
+                {aqi && <span className={`weather-aqi-badge ${aqiClass}`} id="weatherAqi">{aqi}</span>}
             </div>
         </div>
     );

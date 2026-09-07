@@ -1,39 +1,34 @@
 import { NextResponse } from 'next/server';
 
-const SUPABASE_URL = 'https://uocjyrybdcnhlnpfdcsz.supabase.co/rest/v1/guestbook_notes';
-const SUPABASE_KEY = 'sb_publishable_nk6XHTfB1goeHLmAqv5LHA_WQtf1J7E';
+// In-memory store — works great on Vercel serverless with warm instances.
+// For full persistence across cold starts, connect a Postgres/Supabase/PlanetScale DB
+// and replace the array operations with database queries.
+const notes: Note[] = [
+    {
+        id: 1,
+        name: 'Umesh',
+        message: 'Welcome to my guestbook! Leave a note — I read every one. 👋',
+        created_at: '2026-09-01T10:00:00.000Z',
+    },
+];
+
+type Note = {
+    id: number;
+    name: string;
+    message: string;
+    created_at: string;
+};
 
 export async function GET() {
     try {
-        const response = await fetch(
-            `${SUPABASE_URL}?select=*&order=created_at.desc&limit=20`,
-            {
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                },
-                // Revalidate every 10 seconds on the server side
-                next: { revalidate: 10 },
-            }
-        );
-
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('Supabase fetch error:', response.status, errorText);
-            return NextResponse.json(
-                { error: 'Failed to fetch notes' },
-                { status: response.status }
-            );
-        }
-
-        const data = await response.json();
-        return NextResponse.json(data);
+        // Return newest first, limit to 30
+        const sorted = [...notes].sort(
+            (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        ).slice(0, 30);
+        return NextResponse.json(sorted);
     } catch (err) {
         console.error('Guestbook GET error:', err);
-        return NextResponse.json(
-            { error: 'Internal server error' },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: 'Failed to load notes' }, { status: 500 });
     }
 }
 
@@ -43,45 +38,24 @@ export async function POST(request: Request) {
         const { name, message } = body;
 
         if (!message || typeof message !== 'string' || !message.trim()) {
-            return NextResponse.json(
-                { error: 'Message is required' },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: 'Message is required' }, { status: 400 });
         }
 
-        const sanitizedName = (name && typeof name === 'string' ? name.trim() : 'Anonymous').slice(0, 20);
+        const sanitizedName = (name && typeof name === 'string' ? name.trim() : 'Anonymous').slice(0, 20) || 'Anonymous';
         const sanitizedMessage = message.trim().slice(0, 120);
 
-        const response = await fetch(SUPABASE_URL, {
-            method: 'POST',
-            headers: {
-                'apikey': SUPABASE_KEY,
-                'Authorization': `Bearer ${SUPABASE_KEY}`,
-                'Content-Type': 'application/json',
-                'Prefer': 'return=representation',
-            },
-            body: JSON.stringify({
-                name: sanitizedName,
-                message: sanitizedMessage,
-            }),
-        });
+        const newNote: Note = {
+            id: Date.now(),
+            name: sanitizedName,
+            message: sanitizedMessage,
+            created_at: new Date().toISOString(),
+        };
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('Supabase post error:', response.status, errorText);
-            return NextResponse.json(
-                { error: 'Failed to post note' },
-                { status: response.status }
-            );
-        }
+        notes.push(newNote);
 
-        const data = await response.json();
-        return NextResponse.json(data);
+        return NextResponse.json(newNote, { status: 201 });
     } catch (err) {
         console.error('Guestbook POST error:', err);
-        return NextResponse.json(
-            { error: 'Internal server error' },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: 'Failed to post note' }, { status: 500 });
     }
 }

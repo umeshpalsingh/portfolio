@@ -21,6 +21,13 @@ export default function Hero() {
                 <div className="hero-ctas enter enter-4">
                     <MagneticButton href="#about" className="btn btn-primary">See my world &darr;</MagneticButton>
                     <ConfettiButton href="#connect" className="btn btn-ghost" id="sayHiBtn">Say hi &diams;</ConfettiButton>
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-ghost hero-resume-btn" aria-label="View résumé">
+                        <svg viewBox="0 0 20 20" fill="none" width="15" height="15" aria-hidden="true">
+                            <rect x="3" y="2" width="14" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                            <path d="M7 7h6M7 10h6M7 13h3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+                        </svg>
+                        Résumé
+                    </a>
                 </div>
             </div>
             <a href="#about" className="scroll-cue" aria-label="Scroll to next section">

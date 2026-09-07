@@ -36,8 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# guestbook data (local storage only, not committed)
+/data/guestbook.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.vercel

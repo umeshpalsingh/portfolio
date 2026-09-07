@@ -3,15 +3,14 @@ export default function Interests() {
     <section className="interests" id="interests">
             <div className="marquee" aria-hidden="true">
                 <div className="marquee-track" id="marqueeTrack">
-                    <span>Photography</span><span>Gaming</span><span>Music</span><span>Traveling</span><span>Cooking</span><span>Reading</span><span>Sketching</span><span>Add yours</span>
-                    <span>Photography</span><span>Gaming</span><span>Music</span><span>Traveling</span><span>Cooking</span><span>Reading</span><span>Sketching</span><span>Add yours</span>
+                    <span>Photography</span><span>Gaming</span><span>Music</span><span>Traveling</span><span>Cooking</span><span>Reading</span><span>Sketching</span><span>Chai Enthusiast</span>
+                    <span>Photography</span><span>Gaming</span><span>Music</span><span>Traveling</span><span>Cooking</span><span>Reading</span><span>Sketching</span><span>Chai Enthusiast</span>
                 </div>
             </div>
             <div className="wrap">
                 <div className="eyebrow reveal">things i love</div>
                 <h2 className="reveal">Outside of the screen</h2>
-                <p className="section-sub reveal">A few placeholders to start — fill these in with what actually fills your
-                    weekends.</p>
+                <p className="section-sub reveal">The stuff that fills my weekends — and honestly explains a lot about my commit messages.</p>
                 <div className="interest-grid stagger">
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -32,7 +31,7 @@ export default function Interests() {
                             <circle cx="18.5" cy="14.5" r="1" />
                         </svg>
                         <h3>Gaming</h3>
-                        <p>Currently grinding [add the game]. No, I won't stop.</p>
+                        <p>Currently grinding Valorant and rewatching cutscenes in games I've already finished.</p>
                     </div>
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -42,7 +41,7 @@ export default function Interests() {
                             <rect x="17.5" y="14" width="4" height="6" rx="1.5" />
                         </svg>
                         <h3>Music</h3>
-                        <p>One playlist named "do not judge me." It's doing fine.</p>
+                        <p>One playlist named &quot;do not judge me.&quot; It&apos;s doing fine.</p>
                     </div>
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"

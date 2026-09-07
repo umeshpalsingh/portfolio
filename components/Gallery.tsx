@@ -13,32 +13,32 @@ type GalleryItem = {
 const galleryData: GalleryItem[] = [
     {
         title: "Travel", category: "Wanderlust", desc: "Cinematic road trips, winding mountain passes, and captured moments wandering off the main path.",
-        images: ["images/travel.webp", "images/travel2.webp", "images/travel3.webp"],
+        images: ["/images/travel.webp", "/images/travel2.webp", "/images/travel3.webp"],
         alts: ["Scenic mountain highway", "Coastal road at golden hour", "European cobblestone street at dusk"]
     },
     {
         title: "Food", category: "Culinary", desc: "Artisanal meals, steaming ramen, and cozy cafe mornings. Eighty percent of my camera roll, for good reason.",
-        images: ["images/food.webp", "images/food2.webp", "images/food3.webp"],
+        images: ["/images/food.webp", "/images/food2.webp", "/images/food3.webp"],
         alts: ["Steaming ramen bowl", "Avocado toast flat-lay", "Matcha latte in ceramic cup"]
     },
     {
         title: "Friends", category: "People", desc: "Shared laughter, late-night pizzas, and the people who make all the screen-time worth it.",
-        images: ["images/friends.webp", "images/friends2.webp", "images/friends3.webp"],
+        images: ["/images/friends.webp", "/images/friends2.webp", "/images/friends3.webp"],
         alts: ["Friends sharing pizza", "Friends at rooftop bar", "Friends walking autumn path"]
     },
     {
         title: "Work", category: "The Daily Grind", desc: "My daily setup: mechanical keyboards, clean lines of code, a warm desk lamp, and a constant flow of hot chai.",
-        images: ["images/work.webp", "images/work2.webp", "images/work3.webp"],
+        images: ["/images/work.webp", "/images/work2.webp", "/images/work3.webp"],
         alts: ["Developer desk setup", "Mechanical keyboard RGB", "Minimalist desk with MacBook"]
     },
     {
         title: "Art", category: "Creative", desc: "Sketches, watercolor paintings, and physical doodles. Keeping my hands busy offline.",
-        images: ["images/art.webp", "images/art2.webp", "images/art3.webp"],
+        images: ["/images/art.webp", "/images/art2.webp", "/images/art3.webp"],
         alts: ["Sketching on notebook", "Watercolor painting in progress", "Pencil sketch portrait"]
     },
     {
         title: "Music", category: "On Repeat", desc: "Spinning vinyl records, cozy home acoustics, and a curated selection of songs on permanent repeat.",
-        images: ["images/music.webp", "images/music2.webp", "images/music3.webp"],
+        images: ["/images/music.webp", "/images/music2.webp", "/images/music3.webp"],
         alts: ["Vinyl record turntable", "Acoustic guitar close-up", "Vinyl record collection"]
     }
 ];
@@ -141,9 +141,22 @@ export default function Gallery() {
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (!lightboxOpen) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImg();
-            if (e.key === 'ArrowLeft') prevImg();
+            if (e.key === 'Escape') {
+                setLightboxOpen(false);
+                document.body.style.overflow = '';
+            }
+            if (e.key === 'ArrowRight') {
+                setActiveImgIdx(prev => {
+                    const item = galleryData[activeItemIdx];
+                    return (prev + 1) % item.images.length;
+                });
+            }
+            if (e.key === 'ArrowLeft') {
+                setActiveImgIdx(prev => {
+                    const item = galleryData[activeItemIdx];
+                    return (prev - 1 + item.images.length) % item.images.length;
+                });
+            }
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
