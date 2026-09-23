@@ -7,19 +7,18 @@ type Project = {
     desc: string;
     img: string;
     tags: string[];
-    github: string;
+    github?: string;
     live: string;
     badge: string;
 };
 
 const projectData: Project[] = [
     {
-        title: "Analytics Dashboard",
-        desc: "A real-time analytics dashboard built for tracking user behaviour and conversion funnels across web properties. Features interactive charts, dark mode, and a customisable widget layout. Built with a focus on sub-100ms render performance.",
-        img: "/images/project_web.webp",
-        tags: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
-        github: "https://github.com/yourhandle",
-        live: "https://yourproject.com",
+        title: "Myo Massage Clinic",
+        desc: "Complete UI of this custom web app I was responisble for delivering  with complete responsiveness and accessibility in mind. Built with a focus on sub-100ms render performance.",
+        img: "/images/myoclinic-laptop.webp",
+        tags: ["HTML", "CSS", "Bootstrap", "PHP", "Laravel"],
+        live: "https://myomassage.myoclinic.ca/",
         badge: "Web App"
     },
     {
@@ -84,7 +83,7 @@ export default function Projects() {
 
                 <div className="project-grid">
                     {projectData.map((project, idx) => (
-                        <article 
+                        <article
                             key={idx}
                             className="project-card reveal"
                             role="button"
@@ -110,16 +109,16 @@ export default function Projects() {
                                     ))}
                                 </div>
                                 <div className="project-card-links">
-                                    {project.github !== '#' && (
+                                    {project.github && (
                                         <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.87-1.34-3.87-1.34-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.78 1.07.78 2.16v3.2c0 .31.21.65.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.87-1.34-3.87-1.34-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.78 1.07.78 2.16v3.2c0 .31.21.65.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z" /></svg>
                                             GitHub →
                                         </a>
                                     )}
                                     {project.live !== '#' && (
                                         <a href={project.live} className="project-link" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                                            Live Demo →
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
+                                            View Live →
                                         </a>
                                     )}
                                 </div>
@@ -130,11 +129,11 @@ export default function Projects() {
             </div>
 
             {/* PROJECT DETAIL MODAL */}
-            <div 
-                className={`project-modal-overlay ${selectedProject ? 'open' : ''}`} 
-                id="projectModalOverlay" 
-                role="dialog" 
-                aria-modal="true" 
+            <div
+                className={`project-modal-overlay ${selectedProject ? 'open' : ''}`}
+                id="projectModalOverlay"
+                role="dialog"
+                aria-modal="true"
                 aria-labelledby="pModalTitle"
                 onClick={(e) => {
                     if (e.target === e.currentTarget) closeModal();
@@ -147,7 +146,7 @@ export default function Projects() {
                             <div className="project-modal-header">
                                 <h3 className="project-modal-title" id="pModalTitle">{selectedProject.title}</h3>
                                 <button className="project-modal-close" id="projectModalClose" aria-label="Close project details" onClick={closeModal}>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
                                 </button>
                             </div>
                             <p className="project-modal-desc" id="pModalDesc">{selectedProject.desc}</p>
@@ -155,15 +154,15 @@ export default function Projects() {
                                 {selectedProject.tags.map(tag => <span key={tag} className="project-tag">{tag}</span>)}
                             </div>
                             <div className="project-modal-links" id="pModalLinks">
-                                {selectedProject.github !== '#' && (
+                                {selectedProject.github && (
                                     <a href={selectedProject.github} className="project-link" target="_blank" rel="noopener">
-                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.87-1.34-3.87-1.34-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.78 1.07.78 2.16v3.2c0 .31.21.65.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.87-1.34-3.87-1.34-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.78 1.07.78 2.16v3.2c0 .31.21.65.79.55A10.52 10.52 0 0023.5 12c0-6.27-5.23-11.5-11.5-11.5z" /></svg>
                                         GitHub →
                                     </a>
                                 )}
                                 {selectedProject.live !== '#' && (
                                     <a href={selectedProject.live} className="project-link" target="_blank" rel="noopener">
-                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
                                         Live Demo →
                                     </a>
                                 )}

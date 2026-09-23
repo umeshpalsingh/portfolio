@@ -1,18 +1,12 @@
 export default function Now() {
-  return (
-    <section className="now-section" id="now">
+    return (
+        <section className="now-section" id="now">
             <div className="wrap">
                 <div className="eyebrow reveal">/now</div>
                 <h2 className="reveal">What I'm Up To</h2>
                 <p className="section-sub reveal">A living snapshot of what I'm currently focused on, reading, building, and obsessing over. Updated whenever the mood strikes.</p>
 
                 <div className="now-grid">
-                    <div className="now-card reveal">
-                        <div className="now-card-icon"><i className="fa-solid fa-book-open"></i></div>
-                        <div className="now-card-label">Reading</div>
-                        <div className="now-card-value">The Pragmatic Programmer</div>
-                        <div className="now-card-sub">Andrew Hunt &amp; David Thomas — timeless advice that somehow still feels fresh.</div>
-                    </div>
                     <div className="now-card reveal">
                         <div className="now-card-icon"><i className="fa-solid fa-hammer"></i></div>
                         <div className="now-card-label">Building</div>
@@ -22,14 +16,14 @@ export default function Now() {
                     <div className="now-card reveal">
                         <div className="now-card-icon"><i className="fa-solid fa-graduation-cap"></i></div>
                         <div className="now-card-label">Learning</div>
-                        <div className="now-card-value">Rust &amp; WebAssembly</div>
-                        <div className="now-card-sub">Slowly convincing myself that memory management is fun, actually.</div>
+                        <div className="now-card-value">AI &amp; LLMs</div>
+                        <div className="now-card-sub">Learning new things about AI &amp; LLMs. It's fun. And fascinating.</div>
                     </div>
                     <div className="now-card reveal">
                         <div className="now-card-icon"><i className="fa-solid fa-headphones"></i></div>
                         <div className="now-card-label">Listening To</div>
-                        <div className="now-card-value">Lofi Hip Hop &amp; Classical Guitar</div>
-                        <div className="now-card-sub">The only consistent coding soundtrack that doesn't demand attention.</div>
+                        <div className="now-card-value">Lofi Hip Hop</div>
+                        <div className="now-card-sub">The only consistent soundtrack that doesn't demand attention.</div>
                     </div>
                     <div className="now-card reveal">
                         <div className="now-card-icon"><i className="fa-solid fa-earth-americas"></i></div>
@@ -46,11 +40,11 @@ export default function Now() {
                     <div className="now-card reveal">
                         <div className="now-card-icon"><i className="fa-solid fa-tv"></i></div>
                         <div className="now-card-label">Currently Watching</div>
-                        <div className="now-card-value">Hunter x Hunter</div>
-                        <div className="now-card-sub">Experiencing an absolute masterpiece of shonen storytelling and power systems.</div>
+                        <div className="now-card-value">One Piece</div>
+                        <div className="now-card-sub">It's long, but worth it. The Journey feels exciting always.</div>
                     </div>
                 </div>
             </div>
         </section>
-  );
+    );
 }

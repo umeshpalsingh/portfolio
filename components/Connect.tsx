@@ -1,21 +1,21 @@
 export default function Connect() {
-  return (
-    <section className="connect" id="connect">
+    return (
+        <section className="connect" id="connect">
             <div className="wrap">
                 <div className="eyebrow reveal">let's be friends</div>
                 <h2 className="reveal">Come say hi</h2>
                 <p className="section-sub reveal">I'm usually around the internet, being a person. Find me here, or just
                     send a message.</p>
                 <div className="social-row stagger">
-                    <a href="mailto:umeshpalsingh@example.com" className="social-pill reveal" id="emailPill"
-                        data-email="umeshpalsingh@example.com">
+                    <a href="mailto:umeshpal6789@gmail.com" className="social-pill reveal" id="emailPill"
+                        data-email="umeshpal6789@gmail.com">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <rect x="3" y="5" width="18" height="14" rx="2" />
                             <path d="M3 7l9 6 9-6" />
                         </svg>
                         Email
                     </a>
-                    <a href="https://instagram.com/umeshpalsingh" className="social-pill reveal">
+                    <a href="https://instagram.com/umeshpalsingh_" className="social-pill reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <rect x="3" y="3" width="18" height="18" rx="5" />
                             <circle cx="12" cy="12" r="4" />
@@ -30,14 +30,14 @@ export default function Connect() {
                         </svg>
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/umeshpalsingh" className="social-pill reveal">
+                    <a href="https://www.linkedin.com/in/umesh-pal-singh/" className="social-pill reveal">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48s1.34 2.98 2.98 2.98 2.98-1.34 2.98-2.98S6.62 3.5 4.98 3.5zM2.4 21.5h5.16V8.98H2.4V21.5zm7.46-12.52v12.52h5.15v-6.6c0-1.74.33-3.43 2.48-3.43 2.12 0 2.15 1.98 2.15 3.54v6.49H24v-7.27c0-4.36-2.36-6.4-5.5-6.4-2.54 0-3.67 1.4-4.3 2.38h-.06V8.98H9.86z" />
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="https://x.com/umeshpalsingh" className="social-pill reveal">
+                    <a href="https://x.com/umesh_pal_singh" className="social-pill reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"
                             strokeLinecap="round">
                             <path d="M4 4l16 16M20 4L4 20" />
@@ -47,5 +47,5 @@ export default function Connect() {
                 </div>
             </div>
         </section>
-  );
+    );
 }

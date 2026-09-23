@@ -13,33 +13,18 @@ type GalleryItem = {
 const galleryData: GalleryItem[] = [
     {
         title: "Travel", category: "Wanderlust", desc: "Cinematic road trips, winding mountain passes, and captured moments wandering off the main path.",
-        images: ["/images/travel.webp", "/images/travel2.webp", "/images/travel3.webp"],
-        alts: ["Scenic mountain highway", "Coastal road at golden hour", "European cobblestone street at dusk"]
+        images: ["/images/bhasm_arti.webp", "/images/sandipani_ashram.jpg", "/images/mahakal_lok.jpg", "/images/omkareshwar.jpg"],
+        alts: ["Bhasm Aarti at Mahakaleshwar", "Sandipani Ashram", "Mahakal Lok Corridor", "Omkareshwar Jyotirlinga"]
     },
     {
-        title: "Food", category: "Culinary", desc: "Artisanal meals, steaming ramen, and cozy cafe mornings. Eighty percent of my camera roll, for good reason.",
-        images: ["/images/food.webp", "/images/food2.webp", "/images/food3.webp"],
+        title: "Food", category: "Culinary", desc: "Artisanal meals, and cozy cafe mornings. Eighty percent of my camera roll, for good reason.",
+        images: ["/images/breakfast_in_jaipur.webp", "/images/dinner_in_jaipur.webp", "/images/kota_kachori.webp", "/images/breakfast_at_nirbana_palace.webp", "images/chole_bhature.webp", "/images/gulabjamun.webp"],
         alts: ["Steaming ramen bowl", "Avocado toast flat-lay", "Matcha latte in ceramic cup"]
     },
     {
         title: "Friends", category: "People", desc: "Shared laughter, late-night pizzas, and the people who make all the screen-time worth it.",
-        images: ["/images/friends.webp", "/images/friends2.webp", "/images/friends3.webp"],
-        alts: ["Friends sharing pizza", "Friends at rooftop bar", "Friends walking autumn path"]
-    },
-    {
-        title: "Work", category: "The Daily Grind", desc: "My daily setup: mechanical keyboards, clean lines of code, a warm desk lamp, and a constant flow of hot chai.",
-        images: ["/images/work.webp", "/images/work2.webp", "/images/work3.webp"],
-        alts: ["Developer desk setup", "Mechanical keyboard RGB", "Minimalist desk with MacBook"]
-    },
-    {
-        title: "Art", category: "Creative", desc: "Sketches, watercolor paintings, and physical doodles. Keeping my hands busy offline.",
-        images: ["/images/art.webp", "/images/art2.webp", "/images/art3.webp"],
-        alts: ["Sketching on notebook", "Watercolor painting in progress", "Pencil sketch portrait"]
-    },
-    {
-        title: "Music", category: "On Repeat", desc: "Spinning vinyl records, cozy home acoustics, and a curated selection of songs on permanent repeat.",
-        images: ["/images/music.webp", "/images/music2.webp", "/images/music3.webp"],
-        alts: ["Vinyl record turntable", "Acoustic guitar close-up", "Vinyl record collection"]
+        images: ["/images/brother.webp", "/images/movie_hall.webp", "/images/school_friends.webp"],
+        alts: ["My Brother", "Watching Movie with Friends", "School Friends"]
     }
 ];
 
@@ -77,10 +62,10 @@ function Tile({ item, onClick, isBig }: { item: GalleryItem, onClick: () => void
     };
 
     return (
-        <div 
+        <div
             className={`tile ${isBig ? 'big ' : ''}reveal`}
-            tabIndex={0} 
-            role="button" 
+            tabIndex={0}
+            role="button"
             aria-haspopup="dialog"
             style={{ transform, transition: transform ? 'none' : 'transform 0.4s ease' }}
             onMouseMove={handleMouseMove}
@@ -91,13 +76,13 @@ function Tile({ item, onClick, isBig }: { item: GalleryItem, onClick: () => void
         >
             <div className="tile-imgs">
                 {item.images.map((src, idx) => (
-                    <img 
-                        key={src} 
-                        className={`tile-img ${idx === activeIndex ? 'active' : ''}`} 
-                        src={src} 
-                        alt={item.alts[idx]} 
-                        draggable="false" 
-                        loading="lazy" 
+                    <img
+                        key={src}
+                        className={`tile-img ${idx === activeIndex ? 'active' : ''}`}
+                        src={src}
+                        alt={item.alts[idx] || item.title}
+                        draggable="false"
+                        loading="lazy"
                     />
                 ))}
             </div>
@@ -170,7 +155,7 @@ export default function Gallery() {
                 <div className="eyebrow reveal">a few snapshots</div>
                 <h2 className="reveal">Glimpses of my world</h2>
                 <p className="section-sub reveal">A collection of scenes, hobbies, and moments from my daily life.</p>
-                
+
                 <div className="gallery-grid stagger">
                     {galleryData.map((item, idx) => (
                         <Tile key={item.title} item={item} isBig={idx === 0} onClick={() => openLightbox(idx)} />
@@ -186,21 +171,21 @@ export default function Gallery() {
                     {/* Left: image panel */}
                     <div className="lightbox-imgs" id="lightboxImgs">
                         {activeItem.images.map((src, idx) => (
-                            <img 
-                                key={src} 
-                                src={src} 
-                                alt={activeItem.alts[idx]} 
-                                className={`lightbox-img ${idx === activeImgIdx ? 'active' : ''}`} 
+                            <img
+                                key={src}
+                                src={src}
+                                alt={activeItem.alts[idx] || activeItem.title}
+                                className={`lightbox-img ${idx === activeImgIdx ? 'active' : ''}`}
                             />
                         ))}
                         <button className="lightbox-arrow prev" onClick={prevImg} aria-label="Previous image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M15 18l-6-6 6-6"/>
+                                <path d="M15 18l-6-6 6-6" />
                             </svg>
                         </button>
                         <button className="lightbox-arrow next" onClick={nextImg} aria-label="Next image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M9 18l6-6-6-6"/>
+                                <path d="M9 18l6-6-6-6" />
                             </svg>
                         </button>
                         <div className="lightbox-counter">{activeImgIdx + 1} / {activeItem.images.length}</div>

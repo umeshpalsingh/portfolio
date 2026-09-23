@@ -1,6 +1,6 @@
 export default function Interests() {
-  return (
-    <section className="interests" id="interests">
+    return (
+        <section className="interests" id="interests">
             <div className="marquee" aria-hidden="true">
                 <div className="marquee-track" id="marqueeTrack">
                     <span>Photography</span><span>Gaming</span><span>Music</span><span>Traveling</span><span>Cooking</span><span>Reading</span><span>Sketching</span><span>Chai Enthusiast</span>
@@ -20,18 +20,17 @@ export default function Interests() {
                             <circle cx="12" cy="13.5" r="3.5" />
                         </svg>
                         <h3>Photography</h3>
-                        <p>Mostly photos of food, taken right before it gets eaten.</p>
+                        <p>Mostly photos of food and workouts.</p>
                     </div>
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
                             strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="2" y="9" width="20" height="9" rx="4" />
-                            <path d="M7 11v4M5 13h4" />
-                            <circle cx="16" cy="12.5" r="1" />
-                            <circle cx="18.5" cy="14.5" r="1" />
+                            <path d="M4 9v6M7 7v10M17 7v10M20 9v6" />
+                            <path d="M7 12h10" />
+                            <path d="M2.5 10.5v3M21.5 10.5v3" />
                         </svg>
-                        <h3>Gaming</h3>
-                        <p>Currently grinding Valorant and rewatching cutscenes in games I've already finished.</p>
+                        <h3>GYM</h3>
+                        <p>Currently focused on my health and body. trying to reduce fat and gain muscle. Wish me luck</p>
                     </div>
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -41,7 +40,7 @@ export default function Interests() {
                             <rect x="17.5" y="14" width="4" height="6" rx="1.5" />
                         </svg>
                         <h3>Music</h3>
-                        <p>One playlist named &quot;do not judge me.&quot; It&apos;s doing fine.</p>
+                        <p>I like Punjabi and Indian music and few english songs. </p>
                     </div>
                     <div className="interest-card reveal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -55,5 +54,5 @@ export default function Interests() {
                 </div>
             </div>
         </section>
-  );
+    );
 }
