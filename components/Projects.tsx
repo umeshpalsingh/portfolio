@@ -15,11 +15,21 @@ type Project = {
 const projectData: Project[] = [
     {
         title: "Myo Massage Clinic",
-        desc: "Complete UI of this custom web app I was responisble for delivering  with complete responsiveness and accessibility in mind. Built with a focus on sub-100ms render performance.",
+        desc: "Complete UI of this custom web app I was responisble for delivering  with complete responsiveness and accessibility in mind. Built with a focus on sub-100ms render performance. Figma to complete code for this web application includes various admin screens with highly optimised code for performance.",
         img: "/images/myoclinic-laptop.webp",
         tags: ["HTML", "CSS", "Bootstrap", "PHP", "Laravel"],
+        github: "https://github.com/umeshpalsingh/myo-clinic",
         live: "https://myomassage.myoclinic.ca/",
         badge: "Web App"
+    },
+    {
+        title: "Driftbound-v0.4",
+        desc: "An AI-assisted 3D sled racing game featuring curved mountain tracks, slingshot launches, ramps, collectible coins, character customization, and mobile-friendly controls. I used AI to generate and refine the code, while guiding the game’s concept, design, and gameplay through iterative feedback.",
+        img: "/images/driftbound-v0.4.webp",
+        tags: ["Three.js", "JavaScript", "HTML5", "CSS3", "LocalStorage", "Vercel"],
+        github: "https://github.com/umeshpalsingh/Driftbound-v0.4",
+        live: "https://driftbound-v04.vercel.app/",
+        badge: "Game"
     },
     {
         title: "FitTrack Mobile",

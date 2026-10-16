@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const words = ['a developer.', 'a dreamer.', 'forever curious.', 'a collector of half-finished hobbies.', 'always up for chai.'];
+const words = ['a developer.', 'a dreamer.', 'forever curious.', 'a collector of half-finished hobbies.', 'always up for a tea.'];
 
 export default function CycleWord() {
     const [index, setIndex] = useState(0);

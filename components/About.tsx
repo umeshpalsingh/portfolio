@@ -10,7 +10,7 @@ export default function About() {
 
                 <div className="about-layout">
 
-                    {/*  BIO CARD (left, row 1)  */}
+                    {/*  BIO CARD  */}
                     <div className="about-card about-bio reveal-left">
                         <div className="bio-greeting">
                             <span className="bio-greeting-dot"></span>
@@ -27,40 +27,19 @@ export default function About() {
                         </div>
                     </div>
 
-                    {/*  RIGHT COLUMN (weather + spotify)  */}
+                    {/*  PERSONAL SNAPSHOT  */}
                     <div className="about-right">
-
-                        {/*  WEATHER  */}
                         <WeatherWidget />
-
-                        {/*  SPOTIFY  */}
-                        <div className="about-card about-spotify reveal-right" style={{ transitionDelay: "120ms" }}>
-                            <iframe
-                                title="Spotify Embed: Recommendation Playlist"
-                                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-                                width="100%"
-                                height="152"
-                                style={{ border: 'none' }}
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy">
-                            </iframe>
+                        <div className="about-stats-row">
+                            <div className="about-card about-stat reveal-up" style={{ transitionDelay: "80ms" }}>
+                                <CountUp className="about-stat-num" target={6} />
+                                <span className="about-stat-label">hobbies attempted this year</span>
+                            </div>
+                            <div className="about-card about-stat reveal-up" style={{ transitionDelay: "180ms" }}>
+                                <CountUp className="about-stat-num" target={20} />
+                                <span className="about-stat-label">songs on repeat</span>
+                            </div>
                         </div>
-
-                    </div>
-
-                    {/*  STATS ROW (left, row 2)  */}
-                    <div className="about-stats-row">
-
-                        <div className="about-card about-stat reveal-up" style={{ transitionDelay: "80ms" }}>
-                            <CountUp className="about-stat-num" target={6} />
-                            <span className="about-stat-label">hobbies attempted this year</span>
-                        </div>
-
-                        <div className="about-card about-stat reveal-up" style={{ transitionDelay: "180ms" }}>
-                            <CountUp className="about-stat-num" target={80} />
-                            <span className="about-stat-label">songs on repeat</span>
-                        </div>
-
                     </div>
 
                 </div>

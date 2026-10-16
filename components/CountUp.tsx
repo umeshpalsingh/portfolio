@@ -46,5 +46,5 @@ export default function CountUp({ target, className }: { target: number, classNa
         return () => observer.disconnect();
     }, [target, hasAnimated]);
 
-    return <span ref={ref} className={className}>{count}</span>;
+    return <span ref={ref} className={className}>{count}+</span>;
 }
